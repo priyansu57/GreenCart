@@ -10,7 +10,7 @@ export const register = async (req , res) => {
         const{name , email , password} = req.body;
 
         if(!name || !email || !password){
-            return res.status(400).json({success: false ,message : "name,email,password is not sended !!"})
+            return res.json({success: false ,message : "name,email,password is not sended !!"})
         }
         const existingUser = await User.findOne({email})
 
@@ -54,7 +54,7 @@ export const Login = async(req,res) => {
      const{email , password} = req.body ;
      
      if(!email || !password){
-            return res.res.json({success: false ,message : "name,email,password is not sended !!"})
+            return res.json({success: false ,message : "name,email,password is not sended !!"})
         }
     const user = await User.findOne({email});
 

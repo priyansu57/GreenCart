@@ -15,7 +15,7 @@ export const register = async (req , res) => {
         const existingUser = await User.findOne({email})
 
         if(existingUser) {
-            return res.status(400).json({success: false , message: 'User is already exist !!'})
+            return res.json({success: false , message: 'User is already exist !!'})
         }
       
         const  hashedPassword = await bcrypt.hash(password,10)
@@ -54,7 +54,7 @@ export const Login = async(req,res) => {
      const{email , password} = req.body ;
      
      if(!email || !password){
-            return res.status(400).res.json({success: false ,message : "name,email,password is not sended !!"})
+            return res.res.json({success: false ,message : "name,email,password is not sended !!"})
         }
     const user = await User.findOne({email});
 

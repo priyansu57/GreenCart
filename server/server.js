@@ -13,7 +13,7 @@ import { productRouter } from "./routes/ProductRouter.js";
 
 const app = express();
 const port = process.env.PORT || 4000;
-const allowedOrigin = ['http://localhost:5173']
+const allowedOrigin = ['http://localhost:5173' , 'https://green-cart-swart.vercel.app']
 
 await connectDB()
  .then(() => console.log("connection successfull")

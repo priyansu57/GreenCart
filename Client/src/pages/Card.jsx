@@ -46,7 +46,7 @@ const Cart = () => {
             toast.error("error happen !!")
            }
         } catch (error) {
-            toast.error(error.message)
+           console.log(error.message)
         }
     }
 
@@ -67,7 +67,7 @@ useEffect (() => {
     if(user){
       getuserAddress();
     }
-    },[user,cartItems]);
+    },[user,cartItems,cartArray]);
 
   const placeOrder = async() => {
     try {

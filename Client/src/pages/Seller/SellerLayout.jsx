@@ -16,11 +16,11 @@ function SellerLayout() {
 
     const logout = async() => {
         try {
-        const{data} = await axiosShortener.post("/api/user/logout" );
+        const{data} = await axiosShortener.post("/api/seller/logout" );
           if(data.success){
               setIsSeller(false);
               navigate("/")
-              toast.success("user was Logout.");
+              toast.success("seller was Logout.");
               
             }else{
                   toast.error(data.message)

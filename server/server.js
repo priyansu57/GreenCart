@@ -29,7 +29,13 @@ app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 app.use(cookieParser());
 app.use(cors({
-    origin: allowedOrigin ,
+    origin: function (origin, callback) {
+    if (!origin || allowedOrigin.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
      credentials: true ,
      methods: ['GET','POST' , 'DELETE' , 'PUT' , 'PATCH'],
 }))

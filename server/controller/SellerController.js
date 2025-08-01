@@ -11,7 +11,7 @@ export const register = async (req , res) => {
           console.log("name" ,name , "email" , email , "password" , password);
           
         if(!name || !email || !password){
-            return res.status(400).json({success: false ,message : "name,email,password is not sended !!"})
+            return res.json({success: false ,message : "name,email,password is not sended !!"})
         }
         const existingSeller = await Seller.findOne({email})
 

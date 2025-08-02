@@ -63,11 +63,11 @@ const Cart = () => {
        
     },[product,cartItems])
 
-useEffect (() => {
+    useEffect (() => {
     if(user){
       getuserAddress();
     }
-    },[user,cartItems,cartArray]);
+    },[user,cartItems]);
 
   const placeOrder = async() => {
     try {

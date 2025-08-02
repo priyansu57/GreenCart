@@ -78,7 +78,7 @@ const Cart = () => {
         }
  
          if(!cartItems){
-            return toast.error("Please select an address");
+            return toast.error("Add Product's !!");
         }
 
         if(paymentOPtion === "COD"){

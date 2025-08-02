@@ -59,15 +59,16 @@ const Cart = () => {
     useEffect(() => {
         if(product.length > 0 && cartItems){
             getCart();
+           
         }
        
     },[product,cartItems])
 
     useEffect (() => {
     if(user){
-      getuserAddress();
+       getuserAddress();
     }
-    },[user,cartItems]);
+    },[cartArray , user ,cartItems]);
 
   const placeOrder = async() => {
     try {
@@ -75,6 +76,11 @@ const Cart = () => {
         if(!selectedAddress){
             return toast.error("Please select an address");
         }
+ 
+         if(!cartItems){
+            return toast.error("Please select an address");
+        }
+
         if(paymentOPtion === "COD"){
             
             const { data } = await axiosShortener.post("/api/order/cod" , {

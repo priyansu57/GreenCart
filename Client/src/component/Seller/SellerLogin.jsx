@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 
 function SellerLogin() {
   
-    const {isSeller , setIsSeller ,setSeller,axiosShortener , navigate , state , setState} = useAppcontext();
+    const {isSeller , setIsSeller ,setSeller, seller, axiosShortener , navigate , state , setState} = useAppcontext();
     const [name, setName] = useState("");
     const[email , setEmail] = useState("");
     const [password , setPassword] = useState("");
@@ -35,7 +35,7 @@ function SellerLogin() {
                 setSeller(data.seller.name)
                 setIsSeller(true);
                navigate("/seller")
-              toast.success("user was login .");
+              toast.success(`${data.seller.name} was Register .`);
            }else{
             toast.error(data.message)
            }
@@ -46,7 +46,7 @@ function SellerLogin() {
                 setSeller(data.seller.name);
                setIsSeller(true);
                navigate("/seller")
-              toast.success("user was login .");
+               toast.success(`${data.seller.name} was login .`);
            }else{
             toast.error(data.message)
            }

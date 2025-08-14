@@ -52,7 +52,7 @@ function MyOrder() {
                         <div key={idx} className={`relative bg-white text-gray-500/70 mb-2 mt-2 flex justify-between  ${order.items.length !== idx+1 && "border-b pb-2.5"}`}>
                             <div className='flex items-center  mb-4 md:mb-0'>
                                 <div className='bg-primary/10 p-4 rounded-lg'>
-                                    <img src={ item.product.image  ?  item.product.image[0] : "Image was not given ."} alt="cart-product" className='w-16 h-16'/>
+                                    <img src={ item.product?.image  ?  item.product.image[0] : "Image was not given ."} alt="cart-product" className='w-16 h-16'/>
                                 </div>
                                 <div className='ml-4'>
                                     <h2 className='text-xl font-medium text-gray-800'>{item.product.name}</h2>

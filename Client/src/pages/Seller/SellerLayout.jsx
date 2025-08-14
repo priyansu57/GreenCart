@@ -20,7 +20,7 @@ function SellerLayout() {
           if(data.success){
               setIsSeller(false);
               navigate("/")
-              toast.success("seller was Logout.");
+              toast.success( `${seller} was Logout.`);
               
             }else{
                   toast.error(data.message)

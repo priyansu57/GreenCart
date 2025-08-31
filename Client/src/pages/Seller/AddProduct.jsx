@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { assets, categories, dummyProducts } from '../../assets/assets';
 import toast from "react-hot-toast"
 import {  useAppcontext } from '../../context/AppContext';
+import Loader from './Loading';
 
 function AddProduct() {
   
@@ -11,13 +12,18 @@ function AddProduct() {
     const[category , setCategory] = useState('');
     const[price , setPrice] = useState('');
     const[offerPrice , setOfferPrice] = useState('');
+    const [Loading , setLoading] = useState(false);
+
 
   const {axiosShortener , seller} = useAppcontext();
 
+    
+
     const onSubmitehandle = async(event) => {
+        setLoading(true);
+         event.preventDefault();
          try {
-            event.preventDefault();
-           
+
             const productData = {
                 name : productName ,
                 description  : description ?.split("\n"),
@@ -50,11 +56,16 @@ function AddProduct() {
          } catch (error) {
             console.log(error);
             toast.error(error.message);
+         } finally {
+            setLoading(false);
          }
     } 
 
+   if(Loading) return <Loader category={category} productName={productName} files={files[0]}  /> 
 
     return (
+        <>
+        {/* <Loader />  */}
         <div className="no-scrollbar flex-1 h-[95vh] overflow-y-scroll flex flex-col justify-between ">
             <form onSubmit={onSubmitehandle} className="md:p-10 p-4 space-y-5 max-w-lg">
                 <div>
@@ -104,7 +115,8 @@ function AddProduct() {
                 </div>
                 <button className="px-8 py-2.5 bg-primary text-white font-medium rounded cursor-pointer">ADD</button>
             </form>
-        </div>
+        </div> 
+       </>  
     );
 };
 

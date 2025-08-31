@@ -54,7 +54,7 @@ function Login() {
 
                  if(data.success){
                     setUser(data.user.name);
-                  setShowuserLogin(false) ;
+                  setShowuserLogin(false);
                   navigate("/")
                   toast.success(`${data.user.name} , WellCome to GreenCart .`);
                }else{
